@@ -12,6 +12,7 @@ export interface Attributes {
 	poster?: string
 }
 import fm, { type FrontMatterResult } from 'front-matter'
+import { base } from '$app/paths'
 
 export interface Post extends FrontMatterResult<Attributes> {
 	created: Date
@@ -38,7 +39,7 @@ export async function GET() {
 		}
 		const year = fpath.dirname(f).slice('blog/'.length)
 		r.attributes.tags = (r.attributes?.tags ?? []).concat(`#${year}`)
-		r.path = f
+		r.path = fpath.join('/', base, f)
 		return r
 	})
 	let posts = await Promise.all(postsTasks)
