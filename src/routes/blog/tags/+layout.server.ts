@@ -5,8 +5,8 @@ export async function load({ parent, fetch, params, route }) {
 		subnavs: [
 			...subnavs,
 			{
-				name: `${params.year}年份的文章`,
-				link: resolveRoute('/blog/[year]/', { year: params.year }),
+				name: `Tags 中心`,
+				link: resolveRoute('/blog/tags/', {}),
 			},
 		],
 	}
