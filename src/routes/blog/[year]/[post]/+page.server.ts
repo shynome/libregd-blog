@@ -19,15 +19,25 @@ const md = MarkdownIt({
 	},
 })
 
-export async function load({ fetch, params }) {
+import { resolveRoute } from '$app/paths'
+
+export async function load({ fetch, params, route, parent }) {
 	const posts: Post[] = await fetch('/blog/posts.json').then((r) => r.json())
 	const path = `/blog/${params.year}/${params.post}`
 	for (let post of posts) {
 		if (post.path === path) {
 			const content = md.render(post.body)
+			const { subnavs } = await parent()
 			return {
 				post,
 				content,
+				subnavs: [
+					...subnavs,
+					{
+						name: `${post.attributes.title}`,
+						link: resolveRoute(route.id, params),
+					},
+				],
 			}
 		}
 	}
