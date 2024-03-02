@@ -1,3 +1,5 @@
+export const prerender = true
+
 import { type Post } from '$routes/blog/posts.json/+server.js'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { base } from '$app/paths'

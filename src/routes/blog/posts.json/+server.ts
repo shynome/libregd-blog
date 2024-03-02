@@ -1,3 +1,5 @@
+export const prerender = true
+
 import fs from 'fs/promises'
 import { glob } from 'glob'
 import { simpleGit, type SimpleGit } from 'simple-git'

@@ -1,3 +1,5 @@
+export const prerender = true
+
 import { type Post } from '$routes/blog/posts.json/+server.js'
 
 export type Tagged = { [k: string]: Post[] }
