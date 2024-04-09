@@ -17,6 +17,7 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			entries: ['/sitemap.xml', '/data/posts.json', '/en/'],
+			handleHttpError: 'warn',
 		},
 	},
 }
