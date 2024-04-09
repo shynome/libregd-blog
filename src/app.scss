@@ -1,1 +1,25 @@
-@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap/dist/css/bootstrap.css';
+:root {
+	--bs-body-bg: rgb(243, 244, 246);
+	--bs-body-color-rgb: 243, 244, 246;
+	--bs-link-color-rgb: 107, 114, 128;
+	--bs-link-hover-color-rgb: 17, 24, 39;
+	--bs-link-color: rgb(107, 114, 128);
+	--bs-link-hover-color: rgb(17, 24, 39);
+	--bs-emphasis-color: rgb(17, 24, 39);
+}
+a {
+	text-decoration: none;
+}
+.card {
+	box-shadow: 0px 2px 6px #0000001a;
+	border: none;
+	--bs-card-bg: white;
+}
+
+.btn-light {
+	--bs-btn-color: #6b7280;
+	--bs-btn-bg: #f3f4f6;
+	--bs-btn-disabled-color: #6B7280;
+	--bs-btn-disabled-bg: #f3f4f6;
+}

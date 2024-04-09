@@ -33,7 +33,7 @@
 			<div class="row row-cols-auto g-2">
 				{#each tags as tag}
 					<div class="col">
-						<button class="btn btn-sm rounded-5 btn-secondary">{tag}</button>
+						<button class="btn rounded-5 btn-light" disabled>{tag}</button>
 					</div>
 				{/each}
 			</div>

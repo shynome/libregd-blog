@@ -1,7 +1,7 @@
 ---
 title: 日志的标题01
 # tags: ['数学', '生活', '搞笑', '算标签了']
-desc: "wwwwwwwwwww"
+desc: "some desc"
 ---
 
 # 简介

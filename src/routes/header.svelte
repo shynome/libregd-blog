@@ -41,23 +41,28 @@
 <script>
 	import { t } from '$lib/translations'
 	import { page } from '$app/stores'
+	import { tooltip } from '$lib/action/bootstrap'
 
 	$: lang = $page.data.langPathPrefix
 </script>
 
 <header class="bg-white">
 	<div class="container">
-		<div class="row">
+		<div class="row align-items-center">
 			<div class="col col-auto fs-0">
 				<a href="{lang}/">
 					<img src="/logo.svg" alt="logo" width="50" height="44" />
 				</a>
 			</div>
 			<div class="col">
-				<ul class="nav nav-underline">
+				<ul class="nav nav-underline pt-2 fs-5">
 					{#each navs as nav, i}
 						<li class="nav-item">
-							<a class:active={$activeIndex === i} class="nav-link" href="{lang}{nav.path}">
+							<a
+								class:active={$activeIndex === i}
+								class="nav-link px-2 mx-2"
+								href="{lang}{nav.path}"
+							>
 								{$t(`common.${nav.title}`)}
 							</a>
 						</li>
@@ -70,17 +75,25 @@
 						<label for="lang-switch" class:d-none={lang === ''}>
 							<a
 								href={resolveRoute($page.route.id || '', { ...$page.params, lang: '' })}
-								data-sveltekit-preload-data={false}>中文</a
+								data-sveltekit-preload-data={false}
+								use:tooltip
+								title="前往中文版"
 							>
+								中文
+							</a>
 						</label>
 						<label for="lang-switch" class:d-none={lang === '/en'}>
 							<a
 								href={resolveRoute($page.route.id || '', { ...$page.params, lang: 'en' })}
-								data-sveltekit-preload-data={false}>English</a
+								data-sveltekit-preload-data={false}
+								use:tooltip
+								title="Go to English site"
 							>
+								English
+							</a>
 						</label>
 					</div>
-					<div class="col">
+					<!-- <div class="col">
 						<div class="form-check form-switch">
 							<input
 								type="checkbox"
@@ -91,7 +104,7 @@
 								disabled
 							/>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -103,5 +116,6 @@
 		position: sticky;
 		top: 0;
 		z-index: 1;
+		box-shadow: 0px 2px 8px #0000001a;
 	}
 </style>
