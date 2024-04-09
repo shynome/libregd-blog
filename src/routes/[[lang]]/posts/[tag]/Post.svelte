@@ -10,7 +10,7 @@
 	let show = false
 	let btn: HTMLElement
 	onMount(() => {
-		console.log(btn)
+		// console.log(btn)
 		btn.addEventListener('show.bs.collapse', () => {
 			show = true
 		})
