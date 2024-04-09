@@ -1,7 +1,10 @@
 <script>
 	import '../app.scss'
-	import SEO from './seo.svelte'
+	import 'bootstrap-icons/font/bootstrap-icons.css'
+	import Header from './header.svelte'
+	import Footer from './footer.svelte'
 </script>
 
+<Header></Header>
 <slot />
-<SEO></SEO>
+<Footer></Footer>

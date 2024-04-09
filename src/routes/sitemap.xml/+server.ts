@@ -1,13 +1,13 @@
 export const prerender = true
 
-import { type Post } from '$routes/blog/posts.json/+server.js'
+import { type Post } from '$routes/data/posts.json/+server.js'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { base } from '$app/paths'
 import { dev } from '$app/environment'
 import { domain } from '$lib/config.js'
 
 export async function GET({ fetch, url }) {
-	const posts: Post[] = await fetch('/blog/posts.json').then((r) => r.json())
+	const posts: Post[] = await fetch('/data/posts.json').then((r) => r.json())
 	const stream = new SitemapStream({
 		hostname: dev ? url.toString() : `https://${domain}`,
 	})
