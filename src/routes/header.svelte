@@ -48,19 +48,21 @@
 
 <header class="bg-white">
 	<div class="container">
-		<div class="row align-items-center">
+		<div class="row align-items-center g-0 g-md-2">
 			<div class="col col-auto fs-0">
 				<a href="{lang}/">
 					<img src="/logo.svg" alt="logo" width="50" height="44" />
 				</a>
 			</div>
 			<div class="col">
-				<ul class="nav nav-underline pt-2 fs-5">
+				<ul
+					class="nav nav-underline pt-2 fs-md-5 flex-nowrap justify-content-between justify-content-md-start"
+				>
 					{#each navs as nav, i}
 						<li class="nav-item">
 							<a
 								class:active={$activeIndex === i}
-								class="nav-link px-2 mx-2"
+								class="nav-link px-1 mx-1 px-md-2 mx-md-3"
 								href="{lang}{nav.path}"
 							>
 								{$t(`common.${nav.title}`)}
@@ -89,7 +91,7 @@
 								use:tooltip
 								title="Go to English site"
 							>
-								English
+								EN
 							</a>
 						</label>
 					</div>
@@ -117,5 +119,11 @@
 		top: 0;
 		z-index: 1;
 		box-shadow: 0px 2px 8px #0000001a;
+	}
+	.nav {
+		gap: 0;
+	}
+	.nav li {
+		/* background-color: red; */
 	}
 </style>
