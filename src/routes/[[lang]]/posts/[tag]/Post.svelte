@@ -49,7 +49,12 @@
 			{@html post.content}
 		</div>
 	</div>
-	<a class="card-footer text-center" data-bs-toggle="collapse" href="#post-{post.path}">
+	<a
+		class="card-footer text-center"
+		class:active={show}
+		data-bs-toggle="collapse"
+		href="#post-{post.path}"
+	>
 		<small>
 			{show ? $t('common.collapse_artcile') : $t('common.expand_artcile')}
 		</small>
@@ -59,8 +64,17 @@
 <style>
 	a.card-footer {
 		text-decoration: none;
+		color: #6b7280;
+		transition: all 0.3s;
 	}
-	.card{
+	a.card-footer:hover,
+	a.card-footer:active,
+	a.card-footer.active {
+		color: #000;
+		background: #f3f4f6;
+		box-shadow: inset 0px 1px 0px #0000001a;
+	}
+	.card {
 		overflow: hidden;
 	}
 </style>

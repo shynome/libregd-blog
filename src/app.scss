@@ -20,6 +20,21 @@ a {
 .btn-light {
 	--bs-btn-color: #6b7280;
 	--bs-btn-bg: #f3f4f6;
-	--bs-btn-disabled-color: #6B7280;
+	--bs-btn-disabled-color: #6b7280;
 	--bs-btn-disabled-bg: #f3f4f6;
+}
+
+.btn:active,
+.btn.active {
+	--bs-btn-active-bg: #fff;
+	--bs-btn-active-color: #000;
+}
+
+.btn:hover {
+	--bs-btn-hover-bg: #fff;
+	--bs-btn-hover-color: #000;
+}
+
+a.btn {
+	--bs-btn-color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
 }
