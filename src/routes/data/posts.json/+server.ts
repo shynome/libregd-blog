@@ -13,6 +13,7 @@ export interface Attributes {
 	desc: string
 	poster?: string
 	lang: string
+	banner?: string
 }
 import fm, { type FrontMatterResult } from 'front-matter'
 
