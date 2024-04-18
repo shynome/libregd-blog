@@ -14,6 +14,7 @@ export interface Attributes {
 	poster?: string
 	lang: string
 	banner?: string
+	filepath: string
 }
 import fm, { type FrontMatterResult } from 'front-matter'
 
@@ -32,6 +33,7 @@ export async function GET() {
 		.map(async (f) => {
 			let content = await fs.readFile(f, 'utf8')
 			let r = fm<Attributes>(content) as Post
+			r.attributes.filepath = f
 			const result = await git.log({ file: f })
 			if (result.total > 0) {
 				r.created = new Date(result.all.slice(-1)[0].date)

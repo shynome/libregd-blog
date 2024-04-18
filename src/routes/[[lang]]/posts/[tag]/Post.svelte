@@ -20,17 +20,16 @@
 	})
 	import { page } from '$app/stores'
 	import { resolveRoute } from '$app/paths'
+	const fakeHost = 'http://fake/'
+	$: banner = post.attributes?.banner
+		? new URL(post.attributes!.banner, fakeHost + post.path + '/').toString().slice(fakeHost.length)
+		: Placeholder
+	console.log(post.attributes?.banner)
 </script>
 
 <div class="card rounded-4">
 	<a href={post.path} class="d-none">{post.attributes.title}</a>
-	<img
-		src={post.attributes?.banner ?? Placeholder}
-		width="960"
-		height="204"
-		alt=""
-		class="card-img-top"
-	/>
+	<img src={banner} width="960" height="204" alt="" class="card-img-top" />
 	<div class="card-body">
 		<h4 class="card-title">
 			{post.attributes.title}
