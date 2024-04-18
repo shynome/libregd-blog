@@ -5,6 +5,8 @@ import mime from 'mime-types'
 import filepath from 'path'
 import fs from 'fs/promises'
 
+export const prerender = true
+
 export async function GET({ fetch, route, params }) {
 	const posts: Post[] = await fetch('/data/posts.json').then((r) => r.json())
 	let post: Post = null as any
