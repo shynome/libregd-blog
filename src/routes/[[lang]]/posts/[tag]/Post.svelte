@@ -18,13 +18,7 @@
 			show = false
 		})
 	})
-	import { page } from '$app/stores'
-	import { resolveRoute } from '$app/paths'
-	const fakeHost = 'http://fake/'
-	$: banner = post.attributes?.banner
-		? new URL(post.attributes!.banner, fakeHost + post.path + '/').toString().slice(fakeHost.length)
-		: Placeholder
-	console.log(post.attributes?.banner)
+	$: banner = post.attributes?.banner ?? Placeholder
 </script>
 
 <div class="card rounded-4">

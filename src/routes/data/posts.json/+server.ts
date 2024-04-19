@@ -17,6 +17,7 @@ export interface Attributes {
 	filepath: string
 }
 import fm, { type FrontMatterResult } from 'front-matter'
+import { replaceLink } from '$routes/[[lang]]/posts/[tag]/[post]/md'
 
 export interface Post extends FrontMatterResult<Attributes> {
 	created: Date
@@ -56,6 +57,9 @@ export async function GET() {
 				r.attributes.lang = 'en'
 			} else {
 				r.attributes.lang = 'zh'
+			}
+			if (r.attributes.banner) {
+				r.attributes.banner = replaceLink(r.attributes.banner, { path: r.path })
 			}
 			return r
 		})

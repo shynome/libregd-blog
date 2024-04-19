@@ -11,7 +11,7 @@ export async function GET({ fetch, route, params }) {
 	const posts: Post[] = await fetch('/data/posts.json').then((r) => r.json())
 	let post: Post = null as any
 	const path = resolveRoute('/[[lang]]/posts/[tag]/[post]/', params)
-	console.log(route.id, path)
+	// console.log(route.id, path)
 	for (let rawPost of posts) {
 		if (rawPost.path === path) {
 			post = rawPost
