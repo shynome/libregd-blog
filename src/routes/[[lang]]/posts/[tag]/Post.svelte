@@ -76,4 +76,7 @@
 	.card {
 		overflow: hidden;
 	}
+	.card-body :global(img) {
+		max-width: 100%;
+	}
 </style>
